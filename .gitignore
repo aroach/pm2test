@@ -1,0 +1,15 @@
+node_modules
+public
+.tmp
+.idea
+client/bower_components
+dist
+#/server/config/local.env.js # once clone uncomment for self
+.project
+.DS_Store
+Thumbs.db
+.git
+newrelic_agent.log
+client/posts/files/virl/video
+.settings
+relic.log
