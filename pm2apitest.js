@@ -4,6 +4,8 @@ var pm2 = require('pm2');
 pm2.connect(function(err) {
 
 	var processes = [];
+	var health = {};
+	var overall_health = 'online';
 
 	pm2.list(function(err, process_list) {
 
@@ -18,11 +20,22 @@ pm2.connect(function(err) {
 				pm_id: element.pm2_env.pm_id,
 				status: element.pm2_env.status
 			});
+
+			if (!element.pm2_env.status === 'online') {
+				overall_health = 'failing';
+			}
+
 		});
 
-		console.log(processes);
+		health = {
+			overall: overall_health,
+			proc_list: processes
+		}
+
+		console.log(health);
 
 		pm2.disconnect(function() { process.exit(0) });
+
 	});
 
 });
