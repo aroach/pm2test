@@ -6,9 +6,9 @@ pm2.connect(function(err) {
 		if (err) console.log(err);
 		console.log('======= pm2 describe ==========');
 		console.log("ret:");
-		//console.log(ret);
+		console.log(ret[0]);
 		console.log(ret[0].pm2_env.status);
-		console.log(ret[0].pm2_env.versioning.revision);
+		//console.log(ret[0].pm2_env.versioning.revision);
 
 		pm2.disconnect(function() { process.exit(0) });
 
