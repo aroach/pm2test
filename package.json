@@ -1,0 +1,14 @@
+{
+  "name": "pm2apitest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pm2apitest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pm2": "^0.12.15"
+  }
+}
