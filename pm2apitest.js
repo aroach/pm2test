@@ -2,7 +2,9 @@
 var pm2 = require('pm2');
 
 
-var pm2_health = function() {
+var pm2_health = function(fn) {
+
+	var result = '';
 
 	pm2.connect(function(err) {
 
@@ -35,11 +37,9 @@ var pm2_health = function() {
 				proc_list: processes
 			}
 
-			//console.log(health);
-
-			return health;
-
 			pm2.disconnect(function() { process.exit(0) });
+
+			fn(health);
 
 		});
 
@@ -47,4 +47,6 @@ var pm2_health = function() {
 
 };
 
-console.log(pm2_health);
+pm2_health(function(result) {
+	console.log(result);
+});
